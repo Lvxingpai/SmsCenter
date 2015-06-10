@@ -35,6 +35,8 @@ publishTo := {
     Some("publishReleases"  at nexus + "releases")
 }
 
+val root = project.in(file(".")).enablePlugins(JavaAppPackaging)
+
 Keys.mainClass in Compile := Some("com.lvxingpai.smscenter.SmsCenterServer")
 
 fork in run := true
