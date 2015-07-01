@@ -2,6 +2,9 @@ package com.lvxingpai.smscenter
 
 import java.io.{ BufferedReader, InputStreamReader }
 import java.net.{ URL, URLEncoder }
+import java.util.UUID
+import org.slf4j.LoggerFactory
+
 import scala.collection.JavaConversions._
 import com.twitter.util.{ Future, FuturePool }
 import org.jsoup.Jsoup
@@ -20,6 +23,10 @@ class SmsCenterHandler extends SmsCenter.FutureIface {
 object SmsCenterHandler {
 
   def sendSms(message: String, recipients: String*): Future[String] = {
+    val taskId = UUID.randomUUID().toString
+    val logger = LoggerFactory.getLogger("smscenter")
+    logger.info("%s: sending message to %s" format (taskId, recipients mkString ", "))
+
     val conf = GlobalConf.conf.getConfig("smscenter")
 
     val host = conf.getString("provider.host")
@@ -57,8 +64,11 @@ object SmsCenterHandler {
       val msgIdNodes = doc.select("response>message>msgid").toSeq
       if (msgIdNodes isEmpty)
         throw SmsCenterException(-1, "No message ID detected")
-      else
-        msgIdNodes.head.text
+      else {
+        val job = msgIdNodes.head.text
+        logger.info(s"$taskId: sending completed: $job")
+        job
+      }
     }
   }
 }

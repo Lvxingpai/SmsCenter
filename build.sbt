@@ -23,6 +23,7 @@ libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.1" % "test",
   "net.databinder.dispatch" %% "dispatch-core" % "0.11.2",
   "com.typesafe" % "config" % "1.2.1",
+  "ch.qos.logback" % "logback-classic" % "1.1.3",
   "com.fasterxml.jackson.module" % "jackson-module-scala_2.10" % "2.5.2",
   "com.fasterxml.jackson.core" % "jackson-core" % "2.5.3"
 )

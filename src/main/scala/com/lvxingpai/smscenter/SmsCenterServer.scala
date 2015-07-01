@@ -6,6 +6,7 @@ import com.lvxingpai.smscenter.SmsCenter.FinagledService
 import com.twitter.finagle.builder.ServerBuilder
 import com.twitter.finagle.thrift.ThriftServerFramedCodec
 import org.apache.thrift.protocol.TBinaryProtocol.Factory
+import org.slf4j.LoggerFactory
 
 /**
  * Created by zephyre on 6/9/15.
@@ -22,6 +23,8 @@ object SmsCenterServer extends App {
     val bindPort = conf.getInt("bind.port")
 
     val service = new FinagledService(new SmsCenterHandler, new Factory())
+
+    LoggerFactory.getLogger("smscenter").info("SmsCenter server started")
 
     ServerBuilder()
       .bindTo(new InetSocketAddress(bindHost, bindPort))
