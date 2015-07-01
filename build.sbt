@@ -10,7 +10,7 @@ com.twitter.scrooge.ScroogeSBT.newSettings
 
 scalariformSettings
 
-val finagleVersion = "6.14.0"
+val finagleVersion = "6.26.0"
 
 libraryDependencies ++= Seq(
   "com.lvxingpai" %% "appconfig" % "0.1.1",
