@@ -2,15 +2,15 @@ name := """smscenter"""
 
 organization := "com.lvxingpai"
 
-version := "0.1-SNAPSHOT"
+version := "0.2-SNAPSHOT"
+
+crossScalaVersions := "2.10.4" :: "2.11.4" :: Nil
 
 com.twitter.scrooge.ScroogeSBT.newSettings
 
 scalariformSettings
 
 val finagleVersion = "6.14.0"
-
-scalaVersion := "2.10.4"
 
 libraryDependencies ++= Seq(
   "com.lvxingpai" %% "appconfig" % "0.1.1",
