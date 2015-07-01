@@ -13,7 +13,7 @@ scalariformSettings
 val finagleVersion = "6.26.0"
 
 libraryDependencies ++= Seq(
-  "com.lvxingpai" %% "appconfig" % "0.1.1",
+  "com.lvxingpai" %% "appconfig" % "0.2.1-SNAPSHOT",
   "org.jsoup" % "jsoup" % "1.8.2",
   "com.twitter" %% "finagle-core" % finagleVersion,
   "com.twitter" %% "finagle-thrift" % finagleVersion,
