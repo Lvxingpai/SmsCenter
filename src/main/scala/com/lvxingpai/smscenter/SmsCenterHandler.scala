@@ -18,6 +18,8 @@ import scala.language.postfixOps
 class SmsCenterHandler extends SmsCenter.FutureIface {
   override def sendSms(message: String, recipients: Seq[String]): Future[String] =
     SmsCenterHandler.sendSms(message, recipients: _*)
+
+  override def _ping(): Future[String] = Future("pong")
 }
 
 object SmsCenterHandler {
