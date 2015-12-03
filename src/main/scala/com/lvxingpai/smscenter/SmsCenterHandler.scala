@@ -3,13 +3,13 @@ package com.lvxingpai.smscenter
 import java.io.{ BufferedReader, InputStreamReader }
 import java.net.{ URL, URLEncoder }
 import java.util.UUID
-import org.slf4j.LoggerFactory
 
-import scala.collection.JavaConversions._
 import com.twitter.util.{ Future, FuturePool }
 import org.jsoup.Jsoup
 import org.jsoup.parser.Parser
+import org.slf4j.LoggerFactory
 
+import scala.collection.JavaConversions._
 import scala.language.postfixOps
 
 /**
@@ -19,7 +19,7 @@ class SmsCenterHandler extends SmsCenter.FutureIface {
   override def sendSms(message: String, recipients: Seq[String]): Future[String] =
     SmsCenterHandler.sendSms(message, recipients: _*)
 
-  override def _ping(): Future[String] = Future("pong")
+  override def ping(): Future[String] = Future("pong")
 }
 
 object SmsCenterHandler {
